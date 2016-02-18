@@ -26,8 +26,9 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+Route::group(['middleware' => ['web','auth']], function () {
+    Route::get('project/create','ProjectController@create');
+    Route::post('project/create','ProjectController@create');
 });
 
 Route::group(['middleware' => 'web'], function () {
